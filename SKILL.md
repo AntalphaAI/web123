@@ -1,117 +1,113 @@
 ---
 name: web123
 version: 1.1.0
-description: Web3 技能导航站。"Web3 不会用，就上 web123"。通过自然语言描述需求，自动推荐匹配的 AntalphaAI Skill，并提供安装命令。触发词：web123、推荐技能、我想交易代币、查余额、Web3 新手、投资理财、聪明钱追踪、空投、meme币分析、收款链接、Web3 技能有哪些
+description: "Web3 Skill Navigator / Web3 技能导航站. Describe your need in plain language to get matched AntalphaAI skill recommendations with install commands. Triggers: web123, recommend skill, I want to trade tokens, check wallet balance, Web3 beginner, invest RWA, whale tracking, airdrop, meme token analysis, payment link, what Web3 skills are there / 触发词：web123、推荐技能、我想交易代币、查余额、Web3新手、投资理财、聪明钱追踪、空投、meme币分析、收款链接、Web3技能有哪些"
 author: Antalpha AI
 ---
 
-# web123 — Web3 技能导航站
+# web123 — Web3 Skill Navigator / Web3 技能导航站
 
-> **"Web3 不会用，就上 web123"**
-> AntalphaAI 官方产品矩阵导航，帮你找到最适合的工具
-
----
-
-## 数据来源
-
-所有 skill 元数据存储在 `references/skills.json`，仅收录 AntalphaAI GitHub org 真实发布的 13 个仓库。
-
-**收录清单：**
-- `web3-trader` — DEX 交易 + Hyperliquid 合约
-- `poly-master` — Polymarket 预测市场
-- `defillama-data-aggregator` — DeFi TVL 数据
-- `wallet-balance` — 多链钱包余额
-- `meme-token-analyzer` — Meme 币财富基因分析
-- `airdrop-hunter` — 空投情报
-- `wallet-guard` — 钱包安全防护
-- `web3-investor` — DeFi/NFT 投资基础设施
-- `antalpha-rwa-skill` — RWA 链上理财
-- `eth-payment` — 收款链接生成
-- `smart-money` — 聪明钱鲸鱼追踪
-- `walletconnect-requester` — WalletConnect 钱包连接
-- `transaction-receipt` — 链上交易解析
+> **"Web3 不会用，就上 web123" / "New to Web3? Start with web123."**
+>
+> AntalphaAI 官方 13 个 Skill 导航，自然语言匹配推荐
+> Official navigator for 13 AntalphaAI skills — match by natural language
 
 ---
 
-## 触发条件
+## Data Source / 数据来源
 
-以下任意情况触发本 skill：
+Skill metadata is stored in `references/skills.json`.
+Only skills from the official [AntalphaAI GitHub org](https://github.com/AntalphaAI) are included.
 
-- 用户提到 `web123`
-- 用户用自然语言描述 Web3 需求（如"我想交易代币"、"查钱包余额"）
-- 用户说"Web3 新手"、"新手入门"、"推荐技能"
-- 用户询问"有什么 Web3 工具"、"AntalphaAI 有哪些 skill"
-- 用户按分类浏览（如"安全类的 skill"、"交易类工具"）
+技能元数据存储于 `references/skills.json`，仅收录 AntalphaAI GitHub org 真实发布的仓库。
+
+**13 Skills / 13 个技能：**
+`web3-trader` · `poly-master` · `defillama-data-aggregator` · `wallet-balance` · `meme-token-analyzer` · `airdrop-hunter` · `wallet-guard` · `web3-investor` · `antalpha-rwa-skill` · `eth-payment` · `smart-money` · `walletconnect-requester` · `transaction-receipt`
 
 ---
 
-## 推荐算法（MVP）
+## Trigger Conditions / 触发条件
 
-### 权重计算
+Activate this skill when: / 以下情况触发本 skill：
+
+- User mentions `web123`
+- User describes a Web3 need in natural language (e.g. "I want to trade tokens", "check wallet balance")
+- User says "Web3 beginner", "starter", "recommend a skill"
+- User asks "what Web3 tools are there", "what skills does AntalphaAI have"
+- User browses by category (e.g. "safety skills", "trading tools")
+
+---
+
+## Recommendation Algorithm / 推荐算法 (MVP)
+
+### Weights / 权重
 
 ```
-tags 匹配      → 权重 +3（每个匹配词）
-scenarios 匹配 → 权重 +2（每个匹配词）
-description 匹配 → 权重 +1（每个匹配词）
-新手包关键词   → 额外 +5（检测到"新手"、"入门"、"starter"）
+tags match      → +3 per match / 每次匹配 +3
+scenarios match → +2 per match / 每次匹配 +2
+description     → +1 per match / 每次匹配 +1
+beginner keyword → +5 bonus / 新手关键词额外 +5
 ```
 
-### 匹配步骤
+### Steps / 步骤
 
-1. 将用户输入分词（去停用词）
-2. 遍历 skills.json 中所有 skill，计算匹配权重
-3. 按权重 + priority 排序，返回 Top 3
-4. 如有新手包关键词，返回对应套装而非单个 skill
+1. Tokenize user input / 将用户输入分词
+2. Score all skills by weight + priority / 按权重 + 优先级打分
+3. Return Top 3 / 返回 Top 3
+4. If beginner keyword detected → return starter pack / 检测到新手词 → 返回新手套装
 
-### 边界处理
+### Edge Cases / 边界处理
 
-- **无匹配**（权重均为 0）→ 返回 `hot_skills` 热门推荐 Top 3
-- **匹配 >3 个**→ 按权重 × priority 乘积排序，取 Top 3
-- **"新手入门"类请求**→ 优先返回新手入门套装
-- **分类浏览请求**→ 列出该分类下所有 skill
+| Situation / 情况 | Action / 处理 |
+|-----------------|--------------|
+| No match / 无匹配 | Return `hot_skills` Top 3 / 返回热门 Top 3 |
+| >3 matches | Sort by score × priority, Top 3 |
+| "新手" / "beginner" | Return 新手入门套装 |
+| Category browse / 分类浏览 | List all skills in that category / 列出该分类所有技能 |
 
 ---
 
-## 执行流程
+## Execution Flow / 执行流程
 
-### Step 1：加载数据
+### Step 1: Load Data / 加载数据
 
-读取 `references/skills.json`（相对于 SKILL.md 目录）
+Load `references/skills.json` (relative to SKILL.md directory).
+读取 `references/skills.json`（相对于 SKILL.md 目录）。
 
-### Step 2：意图识别
+### Step 2: Detect Intent / 意图识别
 
-| 意图 | 示例 | 处理方式 |
-|------|------|----------|
-| 需求匹配 | "我想交易代币" | 关键词匹配算法 → Top 3 |
-| 新手入门 | "Web3 新手"、"新手入门" | 直接返回新手入门套装 |
-| 分类浏览 | "安全类的 skill" | 列出该分类所有 skill |
-| 精确查找 | "web3-trader 怎么安装" | 直接返回该 skill 详情 |
-| 全览 | "有哪些 skill"、"产品矩阵" | 列出所有分类和 skill 概览 |
+| Intent / 意图 | Example / 示例 | Action / 处理 |
+|--------------|---------------|--------------|
+| Need match / 需求匹配 | "I want to trade" / "我想交易" | Keyword match → Top 3 |
+| Beginner / 新手入门 | "Web3 beginner" / "新手入门" | Return starter pack / 返回新手套装 |
+| Category browse / 分类浏览 | "Safety skills" / "安全类技能" | List category / 列出分类 |
+| Exact lookup / 精确查找 | "How to install web3-trader" | Return skill detail / 返回详情 |
+| Full list / 全览 | "What skills are there" / "有哪些技能" | Full matrix / 全景矩阵 |
 
-### Step 3：生成推荐结果
+### Step 3: Output / 输出
 
-按下方模板格式输出。
+Use the templates below. / 按下方模板输出。
 
 ---
 
-## 输出模板
+## Output Templates / 输出模板
 
-### 单个 Skill 推荐卡片
+### Single Skill / 单个推荐
 
 ```
-🎯 推荐技能：{name}
-📝 功能：{description}
-💡 使用场景：
+🎯 Recommended / 推荐技能：{name}
+📝 {description}
+💡 Use cases / 使用场景：
 - {example_1}
 - {example_2}
-📦 安装：{install}
+📦 Install / 安装：{install}
 🔗 GitHub：{github}
 ```
 
-### Top 3 推荐列表
+### Top 3 List / Top 3 推荐
 
 ```
-🔍 根据你的需求，为你推荐以下技能：
+🔍 Based on your need / 根据你的需求，推荐以下技能：
 
 ━━━━━━━━━━━━━━━━━━━
 🥇 {name_1} — {description_1}
@@ -126,85 +122,87 @@ description 匹配 → 权重 +1（每个匹配词）
    💡 {scenario_3}
    📦 {install_3}
 ━━━━━━━━━━━━━━━━━━━
-💡 批量安装：clawhub install {name_1} {name_2} {name_3}
+💡 Batch install / 批量安装：
+clawhub install {name_1} {name_2} {name_3}
 ```
 
-### 新手套装推荐
+### Starter Pack / 新手套装
 
 ```
 🎒 {pack_label}
 {pack_description}
 
-包含 {count} 个必备技能：
-- {skill_name_1} — {description_1}
-- {skill_name_2} — {description_2}
-- {skill_name_3} — {description_3}
+Includes / 包含 {count} skills:
+- {skill_1} — {desc_1}
+- {skill_2} — {desc_2}
+- {skill_3} — {desc_3}
 
-一键安装：
+One-click install / 一键安装：
 {install_command}
 ```
 
-### 全景产品矩阵
+### Full Matrix / 全景产品矩阵
 
 ```
-🌐 AntalphaAI Skill 全家桶（共 13 个）
+🌐 AntalphaAI Skills (13 total / 共 13 个)
 
-🔄 交易
-  • web3-trader — DEX 聚合交易 + Hyperliquid 合约
-  • poly-master — Polymarket 预测市场投注与跟单
+🔄 Trading / 交易
+  • web3-trader — DEX swap + Hyperliquid perpetuals / DEX聚合交易+合约
+  • poly-master — Polymarket prediction market / 预测市场
 
-💰 投资
-  • antalpha-rwa — RWA 链上理财，BTC 超额抵押
-  • web3-investor — DeFi/NFT 投资机会发现与执行
+💰 Investment / 投资
+  • antalpha-rwa — RWA on-chain yield / RWA链上理财
+  • web3-investor — DeFi/NFT portfolio / DeFi投资组合
 
-📊 数据
-  • wallet-balance — 多链钱包余额查询
-  • transaction-receipt — 链上交易解析
-  • smart-money — 聪明钱鲸鱼追踪与信号
-  • defillama-data-aggregator — DeFi TVL 与协议数据
+📊 Data / 数据
+  • wallet-balance — Multi-chain balance / 多链钱包余额
+  • transaction-receipt — On-chain tx decoder / 链上交易解析
+  • smart-money — Whale tracking / 聪明钱鲸鱼追踪
+  • defillama-data-aggregator — DeFi TVL data / DeFi数据
 
-🛡️ 安全
-  • wallet-guard — 钱包高风险授权扫描
-  • meme-token-analyzer — Meme 币财富基因检测
-  • airdrop-hunter — 空投情报 S/A/B 评级日报
+🛡️ Safety / 安全
+  • wallet-guard — Wallet approval scan / 钱包授权扫描
+  • meme-token-analyzer — Meme token analysis / Meme币分析
+  • airdrop-hunter — Daily airdrop intel / 空投情报日报
 
-💳 支付
-  • eth-payment — EIP-681 收款链接 + 二维码
-  • walletconnect-requester — WalletConnect v2 钱包连接
+💳 Payment / 支付
+  • eth-payment — EIP-681 payment links / 收款链接生成
+  • walletconnect-requester — WalletConnect v2 / 钱包连接
 
-💬 告诉我你想做什么，我来帮你推荐！
+💬 Tell me what you want to do, I'll recommend the best skill.
+   告诉我你想做什么，我来推荐最合适的技能！
 ```
 
 ---
 
-## 验收标准速查
+## Quick Reference / 验收速查
 
-| 用户说 | 返回结果 |
-|--------|----------|
-| "我想交易代币" | 推荐 web3-trader |
-| "查钱包余额" | 推荐 wallet-balance |
-| "投资 RWA 产品" | 推荐 antalpha-rwa |
-| "聪明钱在买什么" | 推荐 smart-money |
-| "检测 rug pull" | 推荐 wallet-guard + meme-token-analyzer |
-| "空投任务" | 推荐 airdrop-hunter |
-| "帮我生成收款链接" | 推荐 eth-payment |
-| "Web3 新手入门" | 返回新手入门套装 |
-| "有哪些安全工具" | 列出安全分类所有 skill |
-| "有哪些 skill" | 返回全景产品矩阵 |
-| 无法匹配 | 返回热门 Top 3 |
+| User says / 用户说 | Returns / 推荐 |
+|-------------------|--------------|
+| "I want to trade tokens" / "我想交易代币" | web3-trader |
+| "Check wallet balance" / "查钱包余额" | wallet-balance |
+| "Invest in RWA" / "投资RWA" | antalpha-rwa |
+| "What are whales buying" / "聪明钱在买什么" | smart-money |
+| "Check for rug pull" / "检测rug pull" | wallet-guard + meme-token-analyzer |
+| "Airdrop tasks" / "空投任务" | airdrop-hunter |
+| "Generate payment link" / "生成收款链接" | eth-payment |
+| "Web3 beginner" / "Web3新手入门" | Starter pack / 新手套装 |
+| "Safety skills" / "有哪些安全工具" | Safety category / 安全分类 |
+| "All skills" / "有哪些技能" | Full matrix / 全景矩阵 |
+| No match / 无匹配 | Hot Top 3 |
 
 ---
 
-## 安装命令说明
+## Install / 安装
 
 ```bash
-# 安装单个 skill
+# Single skill / 安装单个
 clawhub install web3-trader
 
-# 批量安装（新手包）
+# Batch / 批量安装（新手包）
 clawhub install wallet-balance web3-trader transaction-receipt
 ```
 
 ---
 
-*Powered by Antalpha AI | web123 v1.1.0 | 数据源：github.com/AntalphaAI*
+*Powered by Antalpha AI · web123 v1.1.0 · github.com/AntalphaAI*
