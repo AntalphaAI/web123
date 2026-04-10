@@ -12,7 +12,7 @@ Describe your need in plain language — get the right Web3 skill recommendation
 
 ```bash
 # Install / 安装
-clawhub install web123
+openclaw skill install https://github.com/AntalphaAI/web123
 
 # Then just talk to your AI agent / 然后直接跟 AI 说：
 "我想交易代币"        → 推荐 web3-trader
@@ -50,19 +50,19 @@ clawhub install web123
 
 ### 新手入门 / Web3 Beginner
 ```bash
-clawhub install wallet-balance web3-trader transaction-receipt
+openclaw skill install https://github.com/AntalphaAI/wallet-balance https://github.com/AntalphaAI/web3-trader https://github.com/AntalphaAI/transaction-receipt
 ```
 查余额 + 交易代币 + 查交易记录 / Check balance + trade + verify tx
 
 ### 安全套装 / Safety Pack
 ```bash
-clawhub install wallet-guard airdrop-hunter meme-token-analyzer
+openclaw skill install https://github.com/AntalphaAI/wallet-guard https://github.com/AntalphaAI/airdrop-hunter https://github.com/AntalphaAI/Meme-Token-Analyzer
 ```
 钱包防护 + 空投猎手 + Meme 币分析 / Wallet guard + airdrop + meme analysis
 
 ### 交易套装 / Trading Pack
 ```bash
-clawhub install web3-trader wallet-balance transaction-receipt
+openclaw skill install https://github.com/AntalphaAI/web3-trader https://github.com/AntalphaAI/wallet-balance https://github.com/AntalphaAI/transaction-receipt
 ```
 
 ---
@@ -104,4 +104,4 @@ web123/
 
 ---
 
-*Powered by Antalpha AI · web123 v1.1.0*
+*Powered by Antalpha AI · web123 v1.2.0*

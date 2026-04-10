@@ -39,7 +39,7 @@
         "我想挂单卖出 ETH，价格 3500U",
         "帮我开 ETH 多仓，5 倍杠杆"
       ],
-      "install": "clawhub install web3-trader",
+      "install": "openclaw skill install https://github.com/AntalphaAI/web3-trader",
       "priority": 10
     },
     "poly-master": {
@@ -54,7 +54,7 @@
         "帮我找热门预测市场",
         "我想跟单胜率最高的交易员"
       ],
-      "install": "clawhub install poly-master",
+      "install": "openclaw skill install https://github.com/AntalphaAI/poly-master",
       "priority": 8
     },
     "antalpha-rwa-skill": {
@@ -69,7 +69,7 @@
         "我想投资 1000 USDT 做链上理财",
         "帮我生成 RWA 投资链接"
       ],
-      "install": "clawhub install antalpha-rwa",
+      "install": "openclaw skill install https://github.com/AntalphaAI/antalpha-rwa-skill",
       "priority": 9
     },
     "web3-investor": {
@@ -84,7 +84,7 @@
         "我的链上投资组合表现怎么样？",
         "帮我找 Base 链上高收益机会"
       ],
-      "install": "clawhub install web3-investor",
+      "install": "openclaw skill install https://github.com/AntalphaAI/web3-investor",
       "priority": 7
     },
     "wallet-balance": {
@@ -99,7 +99,7 @@
         "0x123...abc 这个地址有多少 ETH",
         "我的 BTC 钱包现在有多少钱"
       ],
-      "install": "clawhub install wallet-balance",
+      "install": "openclaw skill install https://github.com/AntalphaAI/wallet-balance",
       "priority": 9
     },
     "transaction-receipt": {
@@ -114,7 +114,7 @@
         "我的转账成功了吗？tx hash 是 0x...",
         "帮我解读这笔 Swap 的详情"
       ],
-      "install": "clawhub install transaction-receipt",
+      "install": "openclaw skill install https://github.com/AntalphaAI/transaction-receipt",
       "priority": 8
     },
     "smart-money": {
@@ -129,7 +129,7 @@
         "帮我追踪 Paradigm 钱包的动态",
         "有没有鲸鱼在大量买入 ETH？"
       ],
-      "install": "clawhub install smart-money",
+      "install": "openclaw skill install https://github.com/AntalphaAI/smart-money",
       "priority": 8
     },
     "defillama-data-aggregator": {
@@ -144,7 +144,7 @@
         "帮我找收益率最高的 DeFi 协议",
         "Ethereum 和 Solana 链的 TVL 对比"
       ],
-      "install": "clawhub install defillama-data-aggregator",
+      "install": "openclaw skill install https://github.com/AntalphaAI/defillama-data-aggregator",
       "priority": 7
     },
     "wallet-guard": {
@@ -159,7 +159,7 @@
         "我的钱包资产安全吗？",
         "扫描一下我的 approve 记录"
       ],
-      "install": "clawhub install wallet-guard",
+      "install": "openclaw skill install https://github.com/AntalphaAI/wallet-guard",
       "priority": 8
     },
     "meme-token-analyzer": {
@@ -174,7 +174,7 @@
         "PEPE 最近热度怎么样？",
         "这个新币值得买吗？帮我做个分析"
       ],
-      "install": "clawhub install meme-token-analyzer",
+      "install": "openclaw skill install https://github.com/AntalphaAI/Meme-Token-Analyzer",
       "priority": 7
     },
     "airdrop-hunter": {
@@ -189,7 +189,7 @@
         "帮我找零成本的测试网任务",
         "给我 S 级空投项目列表"
       ],
-      "install": "clawhub install airdrop-hunter",
+      "install": "openclaw skill install https://github.com/AntalphaAI/airdrop-hunter",
       "priority": 7
     },
     "eth-payment": {
@@ -204,7 +204,7 @@
         "我想收 0.1 ETH，帮我生成二维码",
         "给我创建一个 Base 链的收款地址"
       ],
-      "install": "clawhub install eth-payment",
+      "install": "openclaw skill install https://github.com/AntalphaAI/eth-payment",
       "priority": 6
     },
     "walletconnect-requester": {
@@ -219,7 +219,7 @@
         "我需要请求用户授权一笔交易",
         "用 WalletConnect 连接钱包并发起转账"
       ],
-      "install": "clawhub install walletconnect-requester",
+      "install": "openclaw skill install https://github.com/AntalphaAI/walletconnect-requester",
       "priority": 5
     }
   },
@@ -228,19 +228,19 @@
       "label": "🎒 新手入门套装",
       "description": "Web3 三件套，查余额 + 交易 + 查记录",
       "skills": ["wallet-balance", "web3-trader", "transaction-receipt"],
-      "install": "clawhub install wallet-balance web3-trader transaction-receipt"
+      "install": "openclaw skill install https://github.com/AntalphaAI/wallet-balance https://github.com/AntalphaAI/web3-trader https://github.com/AntalphaAI/transaction-receipt"
     },
     "安全套装": {
       "label": "🛡️ 安全套装",
       "description": "钱包防护 + 授权扫描 + 空投猎手",
       "skills": ["wallet-guard", "airdrop-hunter", "meme-token-analyzer"],
-      "install": "clawhub install wallet-guard airdrop-hunter meme-token-analyzer"
+      "install": "openclaw skill install https://github.com/AntalphaAI/wallet-guard https://github.com/AntalphaAI/airdrop-hunter https://github.com/AntalphaAI/Meme-Token-Analyzer"
     },
     "交易套装": {
       "label": "💱 交易套装",
       "description": "交易全链路，查余额 + 下单 + 查记录",
       "skills": ["web3-trader", "wallet-balance", "transaction-receipt"],
-      "install": "clawhub install web3-trader wallet-balance transaction-receipt"
+      "install": "openclaw skill install https://github.com/AntalphaAI/web3-trader https://github.com/AntalphaAI/wallet-balance https://github.com/AntalphaAI/transaction-receipt"
     }
   },
   "hot_skills": ["web3-trader", "wallet-balance", "antalpha-rwa-skill", "smart-money", "wallet-guard"]

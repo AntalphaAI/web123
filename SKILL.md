@@ -1,6 +1,6 @@
 ---
 name: web123
-version: 1.1.0
+version: 1.2.0
 description: "Web3 Skill Navigator / Web3 技能导航站. Describe your need in plain language to get matched AntalphaAI skill recommendations with install commands. Triggers: web123, recommend skill, I want to trade tokens, check wallet balance, Web3 beginner, invest RWA, whale tracking, airdrop, meme token analysis, payment link, what Web3 skills are there / 触发词：web123、推荐技能、我想交易代币、查余额、Web3新手、投资理财、聪明钱追踪、空投、meme币分析、收款链接、Web3技能有哪些"
 author: Antalpha AI
 ---
@@ -123,7 +123,7 @@ Use the templates below. / 按下方模板输出。
    📦 {install_3}
 ━━━━━━━━━━━━━━━━━━━
 💡 Batch install / 批量安装：
-clawhub install {name_1} {name_2} {name_3}
+openclaw skill install {github_1} {github_2} {github_3}
 ```
 
 ### Starter Pack / 新手套装
@@ -196,13 +196,16 @@ One-click install / 一键安装：
 ## Install / 安装
 
 ```bash
+# Install web123 itself / 安装 web123
+openclaw skill install https://github.com/AntalphaAI/web123
+
 # Single skill / 安装单个
-clawhub install web3-trader
+openclaw skill install https://github.com/AntalphaAI/web3-trader
 
 # Batch / 批量安装（新手包）
-clawhub install wallet-balance web3-trader transaction-receipt
+openclaw skill install https://github.com/AntalphaAI/wallet-balance https://github.com/AntalphaAI/web3-trader https://github.com/AntalphaAI/transaction-receipt
 ```
 
 ---
 
-*Powered by Antalpha AI · web123 v1.1.0 · github.com/AntalphaAI*
+*Powered by Antalpha AI · web123 v1.2.0 · github.com/AntalphaAI*
