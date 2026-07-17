@@ -50,7 +50,7 @@ openclaw skill install https://github.com/AntalphaAI/web123
 | 🛡️ Safety | `airdrop-hunter` | Daily graded airdrop intel |
 | 💳 Payment | `eth-payment` | EIP-681 payment link generator |
 | 💳 Payment | `walletconnect-requester` | WalletConnect v2 wallet connector |
-| 🔧 Tools | `antalpha-ai-setup` ⭐NEW | 60+ Web3 tools one-click MCP setup guide |
+| 🔧 Tools | `antalpha-ai-setup` ⭐NEW | 120+ Web3 tools one-click MCP setup guide |
 | 🔧 Tools | `antalpha-ai-docs` ⭐NEW | Auto-generate MCP tool docs from source |
 
 ## 🎒 Starter Packs
@@ -160,7 +160,7 @@ openclaw skill install https://github.com/AntalphaAI/web123
 | 🛡️ 安全 | `airdrop-hunter` | 空投情报日报 |
 | 💳 支付 | `eth-payment` | EIP-681 收款链接生成 |
 | 💳 支付 | `walletconnect-requester` | WalletConnect 钱包连接 |
-| 🔧 工具 | `antalpha-ai-setup` ⭐新 | 60+ Web3 工具 MCP 一键配置向导 |
+| 🔧 工具 | `antalpha-ai-setup` ⭐新 | 120+ Web3 工具 MCP 一键配置向导 |
 | 🔧 工具 | `antalpha-ai-docs` ⭐新 | 源码驱动 MCP 文档自动生成 |
 
 ## 🎒 新手套装

@@ -291,7 +291,7 @@
       "name": "antalpha-ai-setup",
       "category": "工具",
       "github": "https://github.com/AntalphaAI/antalpha-ai-setup",
-      "description": "Antalpha Skills MCP Server 配置向导，60+ Web3 工具一键接入，DEX/聪明钱/Polymarket/Hyperliquid/DeFi 全覆盖",
+      "description": "Antalpha Skills MCP Server 配置向导，120+ Web3 工具一键接入，DEX/聪明钱/Polymarket/Hyperliquid/DeFi 全覆盖",
       "tags": ["setup", "配置", "安装", "MCP", "新手", "入门", "初始化", "环境配置", "antalpha", "接入"],
       "scenarios": ["首次配置 Antalpha MCP Server", "新手环境初始化", "接入全套 Web3 工具"],
       "examples": [

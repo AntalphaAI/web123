@@ -40,7 +40,7 @@ Only skills from the official [AntalphaAI GitHub org](https://github.com/Antalph
 | `ta-radar` | 数据 | EMA/RSI/MACD/布林带多维技术分析，支持链上合约地址 |
 | `crypto-social-intel` | 数据 | KOL 信号、情绪评分、提及量骤增预警、Fear & Greed 指数 |
 | `anti-rug` | 安全 | 合约风险深度扫描，蜜罐/Rug Pull 检测，支持 ETH/BSC/Polygon |
-| `antalpha-ai-setup` | 工具 | 60+ Web3 工具一键初始化配置向导 |
+| `antalpha-ai-setup` | 工具 | 120+ Web3 工具一键初始化配置向导 |
 | `antalpha-ai-docs` | 工具 | 源码驱动 MCP 文档生成，自动对齐最新 API |
 
 同时，`smart-money` 已更新至 v1.2，新增自定义地址订阅（最多 5 个）和 LP 池鲸鱼追踪。
@@ -199,7 +199,7 @@ One-click install / 一键安装：
   • walletconnect-requester — WalletConnect v2 / 钱包连接
 
 🔧 Tools / 工具
-  • antalpha-ai-setup — 60+ tools setup guide / MCP一键配置向导（NEW）
+  • antalpha-ai-setup — 120+ tools setup guide / MCP一键配置向导（NEW）
   • antalpha-ai-docs — Auto MCP docs generator / MCP文档自动生成（NEW）
 
 💬 Tell me what you want to do, I'll recommend the best skill.
